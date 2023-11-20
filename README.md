@@ -1,8 +1,8 @@
 # IP5306_Heartbeat_Circuit_Sketch
 
-[<img src="img/front.jpg" width="500"/>](img/front.jpg)
+[<img src="img/frontb.jpg" width="500"/>](img/frontb.jpg)
 
-[<img src="img/back.jpg" width="500"/>](img/back.jpg)
+[<img src="img/backb.jpg" width="500"/>](img/backb.jpg)
 
 Over the past few years I have been using the IP5306 chip and specifically the module shown in the image above.
 
