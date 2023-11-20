@@ -4,27 +4,27 @@
 
 [<img src="img/backb.jpg" width="500"/>](img/backb.jpg)
 
-Over the past few years I have been using the IP5306 chip and specifically the module shown in the image above.
+Over the past few years I have been using the *IP5306* chip and specifically the module shown in the image above.
 
-The mpdule is a great all in one solution for LiPo battery powered projects: charge, discharge, protection, 5v step up etc.
+The module is a great all in one solution for LiPo battery powered projects: charge, discharge, protection, 5v step up etc.
 
 That being said there is 1 massively annoying caveat:
 
-If the load current drops below 45mA during 32 seconds, the IP5306 will go into standby mode...
+**If the load current drops below 45mA during 32 seconds, the IP5306 will go into standby mode...**
 
 For low power battery operations this is simply unacceptable.. and I will not simply increase the current draw to keep it on.
 
-There is and I2C version which allows us to change a few settings like standby mode in the IP5306 but for this fix I will focus on the "dumb version".
+There is an I2C version which allows us to change a few settings like standby mode in the IP5306 but for this fix I will focus on the "dumb version".
 
 ## Solution
 
-An easy solution is to create a simple heartbeat solution.
+An easy solution is to create a simple heartbeat circuit.
 
-Since there is a button which will prevent the IC from going into standby mode, if pressed it will reset the 32 seconds 45mA timer.
+Since there is a button which will prevent the IC from going into standby mode, if pressed it will reset the *32 seconds 45mA* timer.
 
 The module I have also has a solder pad where I can easily solder a wire to control this button via an MCU.
 
-Using a BC457 NPN transistor we can create a simple switch to "press the button" at least once within the 32 seconds within a loop.
+Using a *BC457 NPN* transistor we can create a simple switch to "press the button" at least once within the 32 seconds within a loop.
 
 In this way we can constantly keep the module powered.
 
@@ -46,7 +46,7 @@ Collector gets solddered to the button pad.
 
 Once everything is soldered and double checked you can then add the code for the heartbeat.
 
-In this case I use the millis() function and a simple repeating timer all written in a sketch `.ino`
+In this case I use the `millis()` function and a simple repeating timer all written in a sketch `.ino`
 
 
 ```C
