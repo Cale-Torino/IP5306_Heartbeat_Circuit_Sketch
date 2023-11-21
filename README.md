@@ -81,7 +81,7 @@ void setup()
   PORTA.DIRSET = IP5306_HEARTBEAT_PIN;//set output
   PORTA.PIN3CTRL = PORT_PULLUPEN_bm;//initiate learn pin pullup PIN3CTRL = PIN3_bm
   Delay_IP5306_Heartbeat_Led = Delay_IP5306_Heartbeat = millis();//set to current millis at start
-  PORTA.OUTCLR = IP5306_HEARTBEAT_PIN;//write low do this after setting output and pullup
+  PORTA.OUTCLR = IP5306_HEARTBEAT_PIN;//write low, do this after setting output and pullup
 }
 
  void IP5306_Heartbeat() 
@@ -95,7 +95,7 @@ void setup()
     if (!ButtonD && (millis() - Delay_IP5306_Heartbeat) >= IP5306_HEARTBEAT_TIMEOUT)
     {
       ButtonD=true;//set bool in order to go to next else if
-      Delay_IP5306_Heartbeat_Led = IP5306_HEARTBEAT_TIMEOUT+HOLD_TIME; //add holdtime to heartbeat
+      Delay_IP5306_Heartbeat_Led = IP5306_HEARTBEAT_TIMEOUT + HOLD_TIME; //add holdtime to heartbeat
       PORTA.OUTSET = IP5306_HEARTBEAT_PIN;//write high, NPN is ON here
     }
     else if (ButtonD && (millis() - Delay_IP5306_Heartbeat) >= (Delay_IP5306_Heartbeat_Led))
